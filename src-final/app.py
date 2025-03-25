@@ -212,7 +212,10 @@ if st.button("Predict"):
     features = [country, month, category, subcategory, city]  
     features = np.array(features)
     features = features.reshape(1,-1)
-    encoded_features = ordinal_encoder.transform(features)
+    try:
+        encoded_features = ordinal_encoder.transform(features)
+    except ValueError:
+        st.write("Try reformatting the name of the city or filling any empty values.")
     final_features = np.hstack((encoded_features, [[goal]]))
     prediction = str(model.predict(final_features)[0])
     pred_class = class_dict[prediction]
