@@ -8,8 +8,8 @@ from xgboost import XGBClassifier
 
 
 
-model = load(open("XGBoost.sav", "rb"))
-ordinal_encoder = load(open("Ord_Encoder.sav", "rb")) 
+model = load(open("/workspaces/Kickstarter-AC-KR-PN-App/src-final/XGBoost.sav", "rb"))
+ordinal_encoder = load(open("/workspaces/Kickstarter-AC-KR-PN-App/src-final/Ord_Encoder.sav", "rb")) 
 
 class_dict = {
     "0": "Failure",
